@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Тест по программированию</title>
+      <link rel="stylesheet" href="css/style.css">
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="js/tmpl.js"></script>
+  </head>
+
+  <body>
+    <div class="conteiner">
+        <form id="test-form" class="pure-form" action="index.html" method="post">
+        <!-- Тут будет рендериться шаблон -->
+        </form>
+    </div>
+
+    <script type="text/html" id="item_test">
+        <h1 class="paragraph"><%= title %></h1>
+      			<ul class="list">
+        				<% for( var i = 0; i < questions.length; i++ ) { %>
+          					<li class="listItem">
+            					<p class="listItem__quest"><%= questions[i]%></p>
+            					    <% for( var j = 0; j < 3; j++ ) { %>
+            							<div class="box-form">
+              								<input type="radio" name="listRadio<%=i+1%>" id="listRadio<%=i+1%><%=j+1%>" class="radio">
+              								<label for="listRadio<%=i+1%><%=j+1%>" class="label"><%= answers[j]%></label>
+            							</div>
+            						<%}%>
+          					</li>
+        				<%}%>
+      			</ul>
+  			<input type="submit" value="Проверить мои результаты" class="pure-button pure-button-primary" id="go">
+    </script>
+
+    <div class="modal-form">
+      	<span class="modal-close">x</span>
+      	<span class="message"></span>
+	</div>
+	<div class="overlay"></div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
